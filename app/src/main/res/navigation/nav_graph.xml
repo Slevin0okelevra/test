@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.calculatorwithfragment.firstFragment"
+        android:label="firstFragment"
+        >
+        <action
+            android:id="@+id/actionFirstToSecond"
+                app:destination="@id/secondFragment">
+            <argument android:name="assertion1"
+                app:argType="string"
+                app:nullable="true"/>
+            <argument android:name="result1"
+                app:argType="string"
+                app:nullable="true"/>
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.calculatorwithfragment.secondFragment"
+        android:label="secondFragment">
+        <action
+            android:id="@+id/actionSecondToFirst"
+            app:destination="@id/firstFragment"
+            >
+            <argument android:name="assertion1"
+                app:argType="string"
+                app:nullable="true"/>
+            <argument android:name="result1"
+                app:argType="string"
+                app:nullable="true"/>
+        </action>
+    </fragment>
+</navigation>
