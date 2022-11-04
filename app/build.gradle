@@ -1,11 +1,8 @@
+apply plugin: 'com.android.application'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
 
-
-
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'androidx.navigation.safeargs.kotlin'
-}
 
 android {
     namespace 'com.example.calculatorwithfragment'
@@ -42,7 +39,6 @@ android {
 dependencies {
 
 
-    implementation "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -53,14 +49,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    def lifecycle_version = "2.6.0-alpha02"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha03"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.0-alpha03"
 
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-
-    def nav_version = "2.5.2"
-
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 
 }

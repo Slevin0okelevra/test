@@ -7,18 +7,19 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.example.calculatorwithfragment.firstFragment"
-        android:label="firstFragment"
-        >
+        android:name="com.example.calculatorwithfragment.FirstFragment"
+        android:label="firstFragment">
         <action
             android:id="@+id/actionFirstToSecond"
-                app:destination="@id/secondFragment">
-            <argument android:name="assertion1"
+            app:destination="@id/secondFragment">
+            <argument
+                android:name="assertion1"
                 app:argType="string"
-                app:nullable="true"/>
-            <argument android:name="result1"
+                app:nullable="true" />
+            <argument
+                android:name="result1"
                 app:argType="string"
-                app:nullable="true"/>
+                app:nullable="true" />
         </action>
 
     </fragment>
@@ -28,14 +29,15 @@
         android:label="secondFragment">
         <action
             android:id="@+id/actionSecondToFirst"
-            app:destination="@id/firstFragment"
-            >
-            <argument android:name="assertion1"
+            app:destination="@id/firstFragment">
+            <argument
+                android:name="assertion1"
                 app:argType="string"
-                app:nullable="true"/>
-            <argument android:name="result1"
+                app:nullable="true" />
+            <argument
+                android:name="result1"
                 app:argType="string"
-                app:nullable="true"/>
+                app:nullable="true" />
         </action>
     </fragment>
 </navigation>

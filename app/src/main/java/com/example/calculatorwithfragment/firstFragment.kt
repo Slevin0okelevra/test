@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.calculatorwithfragment.databinding.FragmentFirstBinding
 
 
@@ -49,14 +50,13 @@ class FirstFragment : Fragment() {
 
         val math_operation: TextView = binding.mathOperation
         val result_text: TextView = binding.resultText
-        var a = false
 
 
-
-//        binding.btnRaven1.setOnClickListener {
-//
-//            MAIN.navController.navigate(firstFragmentDirections.actionFirstToSecond(assertion1, result1))
-//        }
+        binding.btnRaven1.setOnClickListener {
+            MAIN.navController.navigate(
+                FirstFragmentDirections.actionFirstToSecond(
+                    model._assertion.value,
+                    model._result.value))
 //       binding.apply {
 //          if (!a) btnRaven1.setOnClickListener{
 //                    MAIN.navController.navigate(R.id.actionFirstToSecond)
@@ -65,38 +65,38 @@ class FirstFragment : Fragment() {
 //           else btnRaven1.setOnClickListener{MAIN.navController.popBackStack(R.id.secondFragment,false)
 //            a = false
 //           }}
-
+        }
 
 
         binding.apply {
-            btnOne.setOnClickListener {setTextFields("1")}
-            btnTwo.setOnClickListener {setTextFields("2")}
-            btnThree.setOnClickListener {setTextFields("3")}
-            btnFour.setOnClickListener {setTextFields("4")}
-            btnFive.setOnClickListener {setTextFields("5")}
-            btnSix.setOnClickListener {setTextFields("6")}
-            btnSeven.setOnClickListener {setTextFields("7")}
-            btnEight.setOnClickListener {setTextFields("8")}
-            btnNine.setOnClickListener {setTextFields("9")}
-            btnNull.setOnClickListener {setTextFields("0")}
-            btnScobaon.setOnClickListener {setTextFields("(")}
-            btnScobaoff.setOnClickListener {setTextFields(")")}
-            slash.setOnClickListener {setTextFields("/")}
-            btnZvezda.setOnClickListener {setTextFields("*")}
-            btnPlus.setOnClickListener {setTextFields("+")}
-            btnMinus.setOnClickListener {setTextFields("-")}
-            btnTchk.setOnClickListener {setTextFields(".")}
+            btnOne.setOnClickListener { setTextFields("1") }
+            btnTwo.setOnClickListener { setTextFields("2") }
+            btnThree.setOnClickListener { setTextFields("3") }
+            btnFour.setOnClickListener { setTextFields("4") }
+            btnFive.setOnClickListener { setTextFields("5") }
+            btnSix.setOnClickListener { setTextFields("6") }
+            btnSeven.setOnClickListener { setTextFields("7") }
+            btnEight.setOnClickListener { setTextFields("8") }
+            btnNine.setOnClickListener { setTextFields("9") }
+            btnNull.setOnClickListener { setTextFields("0") }
+            btnScobaon.setOnClickListener { setTextFields("(") }
+            btnScobaoff.setOnClickListener { setTextFields(")") }
+            slash.setOnClickListener { setTextFields("/") }
+            btnZvezda.setOnClickListener { setTextFields("*") }
+            btnPlus.setOnClickListener { setTextFields("+") }
+            btnMinus.setOnClickListener { setTextFields("-") }
+            btnTchk.setOnClickListener { setTextFields(".") }
             btnAc.setOnClickListener {
                 result_text.text = ""
                 math_operation.text = ""
             }
             btnBack.setOnClickListener {
                 val str = math_operation.text.toString()
-                if(str.isNotEmpty())
+                if (str.isNotEmpty())
                     math_operation.text = str.substring(0, str.length - 1)
                 result_text.text = ""
             }
-            btnRaven.setOnClickListener{
+            btnRaven.setOnClickListener {
                 binding.resultText.text = getnumbers(binding.mathOperation.text.toString())
             }
 
@@ -104,7 +104,7 @@ class FirstFragment : Fragment() {
 
     }
 
-    fun getnumbers(input: String):String {
+    fun getnumbers(input: String): String {
         val firstnumber = input.takeWhile { it.isDigit() }.toInt()
         val second = input.takeLastWhile { it.isDigit() }.toInt()
         val operator = input.filter { !it.isDigit() }
@@ -116,8 +116,7 @@ class FirstFragment : Fragment() {
         val math_operation: TextView = binding.mathOperation
         val result_text: TextView = binding.resultText
 
-
-        if(result_text.text !="") {
+        if (result_text.text != "") {
             math_operation.text = result_text.text
             result_text.text = ""
         }
